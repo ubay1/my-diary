@@ -132,7 +132,7 @@ const App = () => {
                     </NavLink>
                     <Dialog
                       open={openDialogDelete}
-                      onOpenChange={() => setOpenDialogDelete(true)}
+                      onOpenChange={(open) => setOpenDialogDelete(open)}
                     >
                       <DialogTrigger asChild>
                         <Button variant="destructive" size="icon">
