@@ -8,6 +8,7 @@ import AddNote from "./pages/add-note.tsx";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import EditNote from "./pages/edit-note.tsx";
+import DetailNote from "./pages/detail-note.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="about" element={<About />} />
             <Route path="add-note" element={<AddNote />} />
             <Route path="edit-note/:id" element={<EditNote />} />
+            <Route path="detail-note/:id" element={<DetailNote />} />
           </Routes>
         </ThemeProvider>
       </ReactQueryProvider>

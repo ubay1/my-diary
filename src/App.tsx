@@ -112,6 +112,17 @@ const App = () => {
                       dangerouslySetInnerHTML={{ __html: item.content }}
                       className="max-h-[100px] line-clamp-4"
                     />
+                    <div className="flex">
+                      <NavLink to={`/detail-note/${item.id}`}>
+                        <Button
+                          variant="link"
+                          size="default"
+                          className="!underline !px-0 !cursor-pointer"
+                        >
+                          Read More
+                        </Button>
+                      </NavLink>
+                    </div>
                   </CardContent>
                   <CardFooter className="gap-2">
                     <NavLink to={`/edit-note/${item.id}`}>

@@ -25,8 +25,8 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import dayjs from "dayjs";
-import { CalendarIcon } from "lucide-react";
-import { useNavigate, useParams } from "react-router";
+import { ArrowLeft, CalendarIcon } from "lucide-react";
+import { NavLink, useNavigate, useParams } from "react-router";
 import type { DiaryTypes } from "@/types/db";
 import { useEffect } from "react";
 
@@ -101,7 +101,17 @@ function EditNote() {
     <div className={"min-h-dvh max-w-3xl m-auto p-4"}>
       <Card>
         <CardHeader>
-          <CardTitle>Edit Note</CardTitle>
+          <CardTitle>
+            <NavLink
+              className="flex items-center gap-2"
+              to={`/`}
+              onClick={() => navigate("/")}
+            >
+              <ArrowLeft />
+              <div>Back</div>
+            </NavLink>
+            <div className="mt-8 text-center text-xl">Edit Note</div>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -191,18 +201,9 @@ function EditNote() {
                 )}
               />
 
-              <div className="flex justify-between gap-2">
-                <Button className="mt-4" type="submit">
-                  Submit
-                </Button>
-                <Button
-                  className="mt-4"
-                  type="button"
-                  onClick={() => navigate("/")}
-                >
-                  Back
-                </Button>
-              </div>
+              <Button className="mt-4" type="submit">
+                Submit
+              </Button>
             </form>
           </Form>
         </CardContent>
