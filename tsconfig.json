@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+      // "@server/*": ["server/*"]
+    },
+    "strict": true,
+    "jsx": "react-jsx",
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    // "jsxImportSource": "hono/jsx"
+  },
+  "include": ["src", "tests"] // semua file .ts dan .d.ts di dalam tests/ ikut ke project, jadi deklarasi global (toBeInTheDocument, toHaveValue, dll) auto kebaca.
+}
