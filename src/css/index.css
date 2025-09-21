@@ -3,6 +3,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+ul {
+  @apply list-disc pl-[20px];
+}
+ol {
+  @apply list-decimal pl-[20px];
+}
+td {
+  @apply p-2 border-2 dark:border-white;
+}
+
 .data-\[state\=open\]\:animate-in.data-\[state\=closed\]\:animate-out.data-\[state\=closed\]\:fade-out-0.data-\[state\=open\]\:fade-in-0.fixed.inset-0.z-50.bg-black\/50 {
   opacity: 0.5;
   backdrop-filter: blur(5px);
@@ -190,6 +200,28 @@
     background-color: #171717;
   }
 
+  .jodit-toolbar-button__trigger {
+    opacity: 1;
+    svg {
+      fill: #fff;
+    }
+  }
+  .jodit-toolbar-button__trigger:hover:not([disabled]) {
+    background-color: #171717;
+  }
+  .jodit-popup__content {
+    background-color: #212121;
+    max-height: 200px !important;
+    .jodit-toolbar-button__button {
+      &:hover {
+        background-color: #171717;
+      }
+      .jodit-toolbar-button__text {
+        color: #fff;
+      }
+    }
+  }
+
   /* jodit comtent & footer */
   .jodit-container:not(.jodit_inline) .jodit-workplace,
   .jodit-workplace + .jodit-status-bar:not(:empty) {
@@ -217,7 +249,7 @@
 }
 
 /********************************************* JODIT ******************************************/
-span.jodit-toolbar-button.jodit-toolbar-button_size_middle.jodit-toolbar-button_variant_initial.jodit-toolbar-button_strikethrough.jodit-ui-group__strikethrough,
+/* span.jodit-toolbar-button.jodit-toolbar-button_size_middle.jodit-toolbar-button_variant_initial.jodit-toolbar-button_strikethrough.jodit-ui-group__strikethrough,
 span.jodit-toolbar-button.jodit-toolbar-button_size_middle.jodit-toolbar-button_variant_initial.jodit-toolbar-button_eraser.jodit-ui-group__eraser,
 .jodit-ui-group.jodit-ui-group_separated_true.jodit-ui-group_group_list.jodit-ui-group_before-spacer_true.jodit-ui-group_size_middle,
 .jodit-ui-group.jodit-ui-group_separated_true.jodit-ui-group_group_font.jodit-ui-group_size_middle,
@@ -229,5 +261,18 @@ span.jodit-toolbar-button.jodit-toolbar-button_size_middle.jodit-toolbar-button_
     .jodit-ui-group_before-spacer_true
   ):after,
 .jodit-ui-spacer {
+  display: none;
+} */
+
+span.jodit-toolbar-button.jodit-toolbar-button_size_middle.jodit-toolbar-button_variant_initial {
+  &.jodit-toolbar-button_file.jodit-ui-group__file,
+  &.jodit-toolbar-button_video.jodit-ui-group__video,
+  &.jodit-toolbar-button_classSpan.jodit-toolbar-button_with-trigger_true.jodit-ui-group__classSpan,
+  &.jodit-toolbar-button_image.jodit-ui-group__image {
+    display: none;
+  }
+}
+
+span.jodit-toolbar-button.jodit-toolbar-button_size_middle.jodit-toolbar-button_variant_initial.jodit-toolbar-button_stroke_false.jodit-toolbar-button_speechRecognize.jodit-toolbar-button_with-trigger_true.jodit-ui-group__speechRecognize {
   display: none;
 }
