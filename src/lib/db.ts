@@ -126,7 +126,7 @@ export async function searchDiaryPrefix(keyword: string) {
      LIMIT 50`
   );
 
-  const pattern = `${keyword}%`; // pakai prefix
+  const pattern = `%${keyword}%` // pakai prefix
   stmt.bind([pattern, pattern]);
 
   const results: DiaryTypes[] = [];
