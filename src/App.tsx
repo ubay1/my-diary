@@ -36,6 +36,7 @@ const App = () => {
   const [search, setSearch] = useState("");
   const { debounced, lastDebounced } = useDebounce(search, 1000);
   const [openDialogDelete, setOpenDialogDelete] = useState(false);
+  const [idDelete, setIdDelete] = useState(0);
 
   const searchDiaries = async () => {
     const diaries = await searchDiaryPrefix(debounced);
@@ -132,7 +133,10 @@ const App = () => {
                     </NavLink>
                     <Dialog
                       open={openDialogDelete}
-                      onOpenChange={(open) => setOpenDialogDelete(open)}
+                      onOpenChange={(open) => {
+                        setIdDelete(item.id);
+                        setOpenDialogDelete(open);
+                      }}
                     >
                       <DialogTrigger asChild>
                         <Button variant="destructive" size="icon">
@@ -151,7 +155,7 @@ const App = () => {
                             <Button
                               variant="destructive"
                               onClick={() => {
-                                deleteDiary(item.id);
+                                deleteDiary(idDelete);
                                 getDiaries();
                                 toast.success("Diary has been deleted");
                                 setOpenDialogDelete(false);
