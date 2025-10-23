@@ -62,7 +62,7 @@ function AddNote() {
     // console.log("data values = ", data);
     saveDiary(
       data.title,
-      dayjs(data.created_at).format("YYYY-MM-DD"),
+      dayjs(data.created_at).format("YYYY-MM-DD HH:mm:ss"),
       data.content
     );
     form.reset();

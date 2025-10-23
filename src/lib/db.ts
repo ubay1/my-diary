@@ -60,7 +60,7 @@ export async function getDiary(date: string): Promise<Record<string, unknown> | 
 export async function getAllDiary() {
   const dbs = await getDB();
   if (!dbs) throw new Error("DB not initialized");
-  const stmt = dbs.prepare("SELECT * FROM diary ORDER BY date ASC");
+  const stmt = dbs.prepare("SELECT * FROM diary ORDER BY date DESC");
   const rows: DiaryTypes[] = [];
   while (stmt.step()) {
     rows.push(stmt.getAsObject() as unknown as DiaryTypes)
